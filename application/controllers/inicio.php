@@ -20,7 +20,8 @@ class inicio extends CI_Controller{
     
     function index()
     {
-        $data=  $this->lugar->getLugares();
-        echo json_encode($data);
+        //$data=  $this->lugar->getLugares();
+        //echo json_encode($data);
+        $this->load->view('header', array('titulo'=>'titulo de prueba'));
     }
 }
