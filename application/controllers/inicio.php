@@ -14,10 +14,13 @@
 class inicio extends CI_Controller{
     function __construct() {
         parent::__construct();
+        //$this ->load->library('session');
+        $this->load->model('lugar');
     }
     
     function index()
     {
-        echo 'kjhkj kjhkj';
+        $data=  $this->lugar->getLugares();
+        echo json_encode($data);
     }
 }
