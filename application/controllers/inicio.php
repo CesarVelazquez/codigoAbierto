@@ -22,6 +22,7 @@ class inicio extends CI_Controller{
     {
         //$data=  $this->lugar->getLugares();
         //echo json_encode($data);
+        $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
         $inicio=array('titulo'=>'Venta de Boletos');
         $this->load->view('comun/header');
         $this->load->view('comun/menu');
