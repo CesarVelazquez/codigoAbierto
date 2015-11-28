@@ -28,5 +28,21 @@ class Boleto extends CI_Model
     {
         $this->db->delete('boleto', array('idBoleto'=>$id));
     }
+    
+    function consultaBoletos($idEvento)
+    {
+        $this->db->select('b.idBoleto,b.idEvento,b.asiento,v.idVenta');
+        $this->db->from('boleto b');
+        $this->db->join('venta v', 'v.idBoleto = b.idBoleto','left');
+        $this->db->where('b.idEvento',$idEvento);
+        $this->db->order_by('b.idBoleto');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    
+    function eliminarboletos($idEvento)
+    {
+        $this->db->delete('boleto', array('idEvento'=>$idEvento));
+    }
 }
 ?>
