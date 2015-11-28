@@ -28,6 +28,6 @@ class inicio extends CI_Controller{
         $this->load->view('comun/menu');
         $this->load->view('comun/login');
         $this->load->view('inicio', $inicio);
-        $this->load->view('comun/footer');
+        $this->load->view('comun/footer',$footer);
     }
 }
