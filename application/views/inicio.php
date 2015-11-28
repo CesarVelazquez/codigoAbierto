@@ -18,7 +18,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script>
-        var aplicacion=angular.module('inicio', []);
+        var aplicacion=angular.module('prueba', []);
         aplicacion.controller('controlador1', ['$scope', function($scope){
                 $scope.nombre='César Velázquez';
                 
