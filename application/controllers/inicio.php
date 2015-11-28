@@ -14,15 +14,19 @@
 class inicio extends CI_Controller{
     function __construct() {
         parent::__construct();
-        //$this ->load->library('session');
-        $this->load->model('lugar');
+        $this ->load->library('session');
+        //$this->load->model('lugar');
     }
     
     function index()
     {
         //$data=  $this->lugar->getLugares();
         //echo json_encode($data);
-        $inicio=array('titulo'=>'titulo de prueba2');
+        $inicio=array('titulo'=>'Venta de Boletos');
+        $this->load->view('comun/header');
+        $this->load->view('comun/menu');
+        $this->load->view('comun/login');
         $this->load->view('inicio', $inicio);
+        $this->load->view('comun/footer');
     }
 }

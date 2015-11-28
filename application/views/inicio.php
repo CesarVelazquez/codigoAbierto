@@ -1,35 +1,32 @@
-<!DOCTYPE html>
-<html lang="es-MX" ng-app="inicio">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $titulo ?></title>
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-      <div ng-controller="controlador1">
-          {{nombre}}
-      </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script>
-        var aplicacion=angular.module('prueba', []);
-        aplicacion.controller('controlador1', ['$scope', function($scope){
-                $scope.nombre='César Velázquez';
-                
-                $scope.prueba=function(){
-                    
-                };
-        }]);
-    </script>
-    <!--
-    <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
-    -->
-  </body>
-</html>
+<div class="row">
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="http://lorempixel.com/400/200/people" alt="Evento">
+    <div class="caption">
+      <h3>Titulo Evento</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p><a href="#" class="btn btn-primary" role="button">Ver Detalle</a></p>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="http://lorempixel.com/400/200/cats" alt="Evento">
+    <div class="caption">
+      <h3>Titulo Evento</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p><a href="#" class="btn btn-primary" role="button">Ver Detalle</a></p>
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="http://lorempixel.com/400/200/sports" alt="Evento">
+    <div class="caption">
+      <h3>Titulo Evento</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p><a href="#" class="btn btn-primary" role="button">Ver Detalle</a></p>
+    </div>
+  </div>
+</div>
+</div>
