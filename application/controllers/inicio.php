@@ -22,6 +22,7 @@ class inicio extends CI_Controller{
     {
         //$data=  $this->lugar->getLugares();
         //echo json_encode($data);
-        $this->load->view('header', array('titulo'=>'titulo de prueba'));
+        $inicio=array('titulo'=>'titulo de prueba');
+        $this->load->view('inicio', $inicio);
     }
 }
