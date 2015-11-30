@@ -7,9 +7,9 @@ class Usuario extends CI_Model
         return $query->result();
     }
 
-    function getUsuario($id)
+    function getUsuario($data)
     {
-        $query=  $this->db->get_where('usuario', array('idUsuario'=>$id));
+        $query=  $this->db->get_where('usuario', $data);
         return $query->row();
     }
     

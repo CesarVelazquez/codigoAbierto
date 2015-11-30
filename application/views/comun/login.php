@@ -6,7 +6,7 @@
         <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
-          <form>
+          <form action="<?php echo site_url('ctrlUsuario/login'); ?>" method="POST">
             <div class="form-group">
               <label for="frmUsuario" class="control-label">Usuario</label>
               <input type="text" class="form-control" name="frmUsuario">
@@ -15,11 +15,12 @@
               <label for="frmPass" class="control-label">Contraseña</label>
               <input type="text" class="form-control" name="frmPass">
             </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
           </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Iniciar Sesión</button>
+        
       </div>
     </div>
   </div>

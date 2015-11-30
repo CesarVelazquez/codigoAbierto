@@ -20,13 +20,16 @@
               <li><a href="#">Contacto</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <?php if (isset($this->session->userdata['usuario'])) {
+                 echo "<li><a href='#'>Bienvenido ".$this->session->userdata['usuario']."</a></li>";
+                } ?>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi Cuenta <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="#" data-toggle="modal" data-target="#login">Login <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-                      <li><a href="#">Registrarme <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+                      <li><a href="<?php echo site_url('ctrlUsuario'); ?>" >Registrarme <span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="#">Logout <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+                      <li><a href="<?php echo site_url('ctrlUsuario/logout'); ?>">Logout <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
                     </ul>
                 </li>
             </ul>
