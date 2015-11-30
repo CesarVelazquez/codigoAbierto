@@ -6,6 +6,12 @@ class Usuario extends CI_Model
         $query=  $this->db->get('usuario');
         return $query->result();
     }
+    
+    function login($usuario, $clave)
+    {
+        $query=  $this->db->get_where('personal', array('usuario'=>$usuario, 'clave'=>sha1($clave)));
+        return $query->row();
+    }
 
     function getUsuario($data)
     {
@@ -16,6 +22,7 @@ class Usuario extends CI_Model
     function setUsuario($data)
     {
         $this->db->insert('usuario', $data);
+        return $this->db->insert_id();
     }
     
     function updateUsuario($id, $data)

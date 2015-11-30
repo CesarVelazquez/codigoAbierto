@@ -16,6 +16,7 @@ class Venta extends CI_Model
     function setVenta($data)
     {
         $this->db->insert('venta', $data);
+        return $this->db->insert_id();
     }
     
     function updateVenta($id, $data)

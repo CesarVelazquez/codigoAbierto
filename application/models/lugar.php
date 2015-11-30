@@ -16,6 +16,7 @@ class Lugar extends CI_Model
     function setLugar($data)
     {
         $this->db->insert('lugar', $data);
+        return $this->db->insert_id();
     }
     
     function updateLugar($id, $data)

@@ -16,6 +16,7 @@ class Evento extends CI_Model
     function setEvento($data)
     {
         $this->db->insert('evento', $data);
+        return $this->db->insert_id();
     }
     
     function updateEvento($id, $data)
