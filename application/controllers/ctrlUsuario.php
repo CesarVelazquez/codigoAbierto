@@ -59,27 +59,36 @@ class CtrlUsuario extends CI_Controller {
                 // Crea la sesión
                 $this->session->set_userdata('usuario', $data['user']);
 
-                // Envía email de confirmación
-          /*      $this->load->library('email');
-                $config['protocol'] = 'sendmail';
-                $config['mailpath'] = '/usr/sbin/sendmail';
-                $config['charset'] = 'iso-8859-1';
-                $config['wordwrap'] = TRUE;
+                // Envío de Email
+                $config['useragent']    = 'CodeIgniter';
+                $config['protocol']     = 'smtp';
+                $config['smtp_host']    = 'ssl://smtp.googlemail.com';
+                $config['smtp_user']    = 'rafael.chavarriaperez@gmail.com'; // Your gmail id
+                $config['smtp_pass']    = 'codigoabierto2015'; // Your gmail Password
+                $config['smtp_port']    = 465;
+                $config['wordwrap']     = TRUE;    
+                $config['wrapchars']    = 76;
+                $config['mailtype']     = 'html';
+                $config['charset']      = 'iso-8859-1';
+                $config['validate']     = FALSE;
+                $config['priority']     = 3;
+                $config['newline']      = "\r\n";
+                $config['crlf']         = "\r\n";
 
+                $this->load->library('email');
                 $this->email->initialize($config);
-                $this->email->from('admin@supertickets.com','Super Tickets');
-                $this->email->to('thief_raf@hotmail.com');
-                $this->email->subject('Registro exitoso');
-                $this->email->message('Gracias por registrarte en super tickets');
-                $this->email->send();*/
-/*
-                $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
-                $inicio=array('titulo'=>'Venta de Boletos');
-                $this->load->view('comun/header');
-                $this->load->view('comun/menu');
-                $this->load->view('comun/login');
-                $this->load->view('inicio', $inicio);
-                $this->load->view('comun/footer',$footer);*/
+
+                $this->email->from('admin@supertickets.com', 'Super Tickets');
+                $this->email->to('thief_raf@hotmail.com'); 
+                 
+
+                $this->email->subject('Usuario Registrado');
+                $this->email->message('Estimad@ '.$this->input->post('frmNombre').', gracias por registrarse en Super Tickets');    
+
+                $this->email->send();
+
+
+redirect('/', 'refresh');
 
             }
     }
