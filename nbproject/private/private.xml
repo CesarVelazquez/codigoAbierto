@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/views/comun/menu.php</file>
             <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/views/comun/header.php</file>
             <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/controllers/inicio.php</file>
             <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/views/inicio.php</file>
-            <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/views/comun/login.php</file>
+            <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/models/evento.php</file>
             <file>file:/C:/xampp/htdocs/ticket/codigoAbierto/application/views/comun/footer.php</file>
         </group>
     </open-files>
