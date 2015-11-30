@@ -9,7 +9,7 @@
           <div class="caption">
             <h3><?php echo $evento->nombre ?></h3>
             <p><?php echo $evento->descripcion ?></p>
-            <p><a href="#" class="btn btn-primary" role="button">Ver Detalle</a></p>
+            <p><a href="<?php echo site_url('ctrlEvento/getEvento/'.$evento->idEvento) ?>" class="btn btn-primary" role="button">Ver Detalle</a></p>
           </div>
         </div>
     </div>

@@ -29,4 +29,9 @@ class CtrlEvento extends CI_Controller {
         $data = array('idLugar'=>$idLugar,'tipoEvento'=>$tipoEvento,'nombre'=>$nombre,'descripcion'=>$descripcion,'foto'=>$foto,'fecha'=>$fecha,'precio'=>$precio);
         $this->evento->setEvento($data);
     }
+    
+    function getEvento($idEvento)
+    {
+        echo sha1('admin');
+    }
 }

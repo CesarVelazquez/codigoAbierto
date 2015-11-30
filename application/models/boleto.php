@@ -16,6 +16,7 @@ class Boleto extends CI_Model
     function setBoleto($data)
     {
         $this->db->insert('boleto', $data);
+        return $this->db->insert_id();
     }
     
     function updateBoleto($id, $data)
