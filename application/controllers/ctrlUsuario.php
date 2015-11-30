@@ -102,6 +102,7 @@ class CtrlUsuario extends CI_Controller {
         if ($this->usuario->getUsuario($data)) {
            $this->session->set_userdata('usuario', $data['user']);
         }
+       redirect('/', 'refresh');
     }
 
     function logout(){
@@ -110,6 +111,7 @@ class CtrlUsuario extends CI_Controller {
          redirect('/inicio', 'refresh');       
         }*/
         $this->session->unset_userdata('usuario');
+        redirect('/', 'refresh');
         
     }
 }
