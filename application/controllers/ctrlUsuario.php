@@ -33,7 +33,7 @@ class CtrlUsuario extends CI_Controller {
             $this->load->library('form_validation');
             $this->load->helper('security');
             //Reglas de validación 
-            $this->form_validation->set_rules('frmUsuario','Nombre de Usuario','trim|required|min_length[8]|xss_clean');
+            $this->form_validation->set_rules('frmUsuario','Nombre de Usuario','trim|required|min_length[8]|is_unique[usuario.user]|xss_clean');
             $this->form_validation->set_rules('frmPass','Contraseña','trim|required|min_length[8]|xss_clean');
             $this->form_validation->set_rules('frmNombre','Nombre Completo','trim|required|xss_clean');
             $this->form_validation->set_rules('frmEmail','Correo Electrónico','trim|required|min_length[8]|valid_email|is_unique[usuario.email]|xss_clean');
@@ -69,7 +69,7 @@ class CtrlUsuario extends CI_Controller {
                 $config['wordwrap']     = TRUE;    
                 $config['wrapchars']    = 76;
                 $config['mailtype']     = 'html';
-                $config['charset']      = 'iso-8859-1';
+                $config['charset']      = 'utf-8';
                 $config['validate']     = FALSE;
                 $config['priority']     = 3;
                 $config['newline']      = "\r\n";
@@ -96,13 +96,35 @@ redirect('/', 'refresh');
     function obtieneUsuarios()
     {
         $idEvento = $this->input->post('frmIdEvento');
-        $this->boleto->consultaBoletos($idEvento);
+        $this->usuario->consultaBoletos($idEvento);
+    }
+
+    function misDatos()
+    {
+        // Carga Modelo Venta para obtener historial de compras del usuario
+        $this->load->model('venta');
+
+        // Toma los datos del usuario con la sesión activa
+        $data = $this->session->userdata['usuario'];
+        $res = $this->usuario->getUsuario($data);
+        $array = json_decode(json_encode($res),true);
+        $data = array(
+                        'usuario' => $array['user'],
+                        'nombre' => $array['nombre'],
+                        'email' => $array['email']
+                    );
+        // Carga la vista del perfil de usuario
+        $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
+        $this->load->view('comun/header');
+        $this->load->view('comun/menu');
+        $this->load->view('misDatos',$data);
+        $this->load->view('comun/footer',$footer);
     }
     
     function eliminaUsuarios()
     {
         $idEvento = $this->input->post('frmIdEvento');
-        $this->boleto->eliminarboletos($idEvento);  
+        $this->usuario->eliminarusuario($idEvento);  
     }
 
     function login(){

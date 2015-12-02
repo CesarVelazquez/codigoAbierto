@@ -9,7 +9,7 @@
             </div>
             <div class="form-group">
               <label for="frmPass" class="control-label">Contraseña</label>
-              <input type="text" value="<?php echo set_value('frmPass') ?>" class="form-control" name="frmPass">
+              <input type="password" value="<?php echo set_value('frmPass') ?>" class="form-control" name="frmPass">
             </div>
             <div class="form-group">
               <label for="frmNombre" class="control-label">Nombre</label>
