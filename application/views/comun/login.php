@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
               <label for="frmPass" class="control-label">Contraseña</label>
-              <input type="text" class="form-control" name="frmPass">
+              <input type="password" class="form-control" name="frmPass">
             </div>
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
           </form>

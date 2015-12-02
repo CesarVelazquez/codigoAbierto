@@ -11,13 +11,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Super Tickets</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">Super Tickets</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Inicio</a></li>
               <li><a href="#">Nosotros</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="<?php echo site_url('ctrlContacto/index'); ?>">Contacto</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($this->session->userdata['usuario'])) {

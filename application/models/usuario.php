@@ -7,18 +7,17 @@ class Usuario extends CI_Model
         return $query->result();
     }
     
-    function login($usuario, $clave)
+    function login($data)
     {
-        $query=  $this->db->get_where('personal', array('usuario'=>$usuario, 'clave'=>sha1($clave)));
+        $query=  $this->db->get_where('usuario', array('user'=> $data['user'], 'password' => $data['password'] ));
         return $query->row();
+
     }
 
     function getUsuario($data)
     {
-        /*$query=  $this->db->get_where('usuario', $data);*/
         $query = $this->db->get_where('usuario', array('user' => $data));
         return $query->row();
-
     }
     
     function setUsuario($data)
@@ -33,9 +32,9 @@ class Usuario extends CI_Model
         $this->db->update('usuario', $data);
     }
     
-    function deleteUsuario($id)
+    function deleteUsuario($usuario)
     {
-        $this->db->delete('usuario', array('idUsuario'=>$id));
+        $this->db->delete('usuario', array('user'=>$usuario));
     }
 }
 ?>

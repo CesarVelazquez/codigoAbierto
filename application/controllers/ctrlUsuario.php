@@ -55,9 +55,12 @@ class CtrlUsuario extends CI_Controller {
                      'nombre' => $this->input->post('frmNombre'),
                      'email' => $this->input->post('frmEmail')
                     );
+
                 $this->usuario->setUsuario($data);
+                
                 // Crea la sesión
                 $this->session->set_userdata('usuario', $data['user']);
+                $this->session->set_userdata('idUsuario',  $this->db->insert_id());
 
                 // Envío de Email
                 $config['useragent']    = 'CodeIgniter';
@@ -104,44 +107,61 @@ redirect('/', 'refresh');
         // Carga Modelo Venta para obtener historial de compras del usuario
         $this->load->model('venta');
 
+       
+       
+
         // Toma los datos del usuario con la sesión activa
         $data = $this->session->userdata['usuario'];
         $res = $this->usuario->getUsuario($data);
         $array = json_decode(json_encode($res),true);
         $data = array(
+                        'idUsuario' => $array['idUsuario'],
                         'usuario' => $array['user'],
                         'nombre' => $array['nombre'],
                         'email' => $array['email']
                     );
+
         // Carga la vista del perfil de usuario
         $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
         $this->load->view('comun/header');
         $this->load->view('comun/menu');
+        $this->load->view('comun/confirm_del');
         $this->load->view('misDatos',$data);
         $this->load->view('comun/footer',$footer);
     }
     
-    function eliminaUsuarios()
+    function eliminaUsuario()
     {
-        $idEvento = $this->input->post('frmIdEvento');
-        $this->usuario->eliminarusuario($idEvento);  
+        $usuario = $this->session->userdata['usuario'];
+        $this->session->unset_userdata('usuario');
+        $this->session->unset_userdata('idUsuario');
+        $this->usuario->deleteUsuario($usuario);
+
+        $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
+        $this->load->view('comun/header');
+        $this->load->view('comun/menu');
+        $this->load->view('usrBorrado');
+        $this->load->view('comun/footer',$footer);  
     }
 
     function login(){
 
         $data = array('user' => $this->input->post('frmUsuario'),'password' => sha1($this->input->post('frmPass')));
-        if ($this->usuario->getUsuario($data)) {
-           $this->session->set_userdata('usuario', $data['user']);
+        
+        if ($var = json_decode(json_encode($this->usuario->login($data)),true)) {
+           $this->session->set_userdata('usuario', $var['user']);
+           $this->session->set_userdata('idUsuario', $var['idUsuario']);
+           redirect('/', 'refresh');
+        }else{
+            echo "usuario o contraseña incorrectos";
         }
-       redirect('/', 'refresh');
+       
     }
 
     function logout(){
-       /* if (isset($this->session->userdata('usuario')) {
-         
-         redirect('/inicio', 'refresh');       
-        }*/
+       
         $this->session->unset_userdata('usuario');
+        $this->session->unset_userdata('idUsuario');
         redirect('/', 'refresh');
         
     }
