@@ -34,4 +34,35 @@ class CtrlEvento extends CI_Controller {
     {
         echo sha1('admin');
     }
+    
+    function editaEvento()
+    {
+        $idEvento = $this->input->post('frmIdEvento');
+        $idLugar = $this->input->post('frmIdLugar');
+        $tipoEvento = $this->input->post('frmTipoEvento');
+        $nombre = $this->input->post('frmNombre');
+        $descripcion = $this->input->post('frmDescripcion');
+        $foto = $this->input->post('frmFoto');
+        $fecha = $this->input->post('frmFecha');
+        $precio = $this->input->post('frmPrecio');
+        $dataEditar = array('idLugar'=>$idLugar,'tipoEvento'=>$tipoEvento,'nombre'=>$nombre,'descripcion'=>$descripcion,'foto'=>$foto,'fecha'=>$fecha,'precio'=>$precio);
+        $this->evento->updateEvento($idEvento,$dataEditar);
+    }
+    
+    function consultaEvento()
+    {
+        $idEvento = $this->input->post('frmIdEvento');
+        $this->evento->getEvento($idEvento);
+    }
+    
+    function consultaEventos ()
+    {
+        $this->evento->getEventos();
+    }
+    
+    function eliminaEvento()
+    {
+        $idEvento = $this->input->post('frmIdEvento');
+        $this->evento->deleteEvento($idEvento);
+    }
 }
