@@ -14,6 +14,9 @@
             <a class="navbar-brand" href="<?php echo base_url(); ?>">Super Tickets</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+              <?php
+              $active=isset($active)?$active:'';
+              ?>
             <ul class="nav navbar-nav">
               <li <?php echo $active=='inicio'?'class="active"':'' ?> ><a href="#">Inicio</a></li>
               <li <?php echo $active=='nosotros'?'class="active"':'' ?>><a href="#">Nosotros</a></li>
