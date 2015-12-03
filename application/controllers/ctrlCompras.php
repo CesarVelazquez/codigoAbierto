@@ -7,30 +7,24 @@
  */
 
 /**
- * Description of inicio
+ * Description of ctrlCompras
  *
  * @author admin
  */
-class inicio extends CI_Controller{
+class ctrlCompras extends CI_Controller{
+    
     function __construct() {
         parent::__construct();
-        $this ->load->library('session');
-        $this->load->model('evento');
         $this->load->model('venta');
-    }
-    
-    function _getNumCompras()
-    {
-        return isset($this->session->userdata['idUsuario'])?count($this->venta->getVentaUsuario($this->session->userdata['idUsuario'])):0;
     }
     
     function index()
     {
         $data=  $this->evento->getEventos();
-        $header=array('titulo'=>'Venta de Boletos');
+        $header=array('titulo'=>'Mis Compras');
         $inicio=array('eventos'=>$data);
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
-        $menu=array('active'=>'inicio', 'compras'=>  $this->_getNumCompras());
+        $menu=array('active'=>'');
         $this->load->view('comun/header', $header);
         $this->load->view('comun/menu', $menu);
         $this->load->view('comun/login');
