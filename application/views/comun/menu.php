@@ -40,6 +40,7 @@
                         if (isset($this->session->userdata['usuario'])) {
 
                          echo "<li><a href='". site_url('ctrlUsuario/misDatos')."'>Mis datos <span class='glyphicon glyphicon-user' aria-hidden='true'></span></a></li>
+                             <li><a href='". site_url('ctrlUsuario/misDatos')."'>Mis compras <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'></span></a></li>
                          <li role='separator' class='divider'></li>
                          <li><a href=" . site_url('ctrlUsuario/logout').">Logout <span class='glyphicon glyphicon-log-out' aria-hidden='true'></span></a></li>";
                         }
