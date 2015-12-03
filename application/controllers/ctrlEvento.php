@@ -34,6 +34,14 @@ class CtrlEvento extends CI_Controller {
     {
         echo sha1('admin');
     }
+
+
+    function listaEventos(){
+        $eventos = $this->evento->getEventos();
+        $this->output->set_output(json_encode($eventos));
+       
+
+    }
     
     function editaEvento()
     {

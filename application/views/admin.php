@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a style="cursor:pointer;" onclick="listado()">
+                        <a style="cursor:pointer;" onclick="listadoUsuarios()">
                             <div class="panel-footer">
                                 <span class="pull-left">Listar usuarios</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                          <a style="cursor:pointer;" onclick="listadoEventos()">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Detalles</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -130,7 +130,7 @@
     <script type="text/javascript">
        
 
-         function listado()
+         function listadoUsuarios()
          {
          $.ajax({
          type: 'POST',
@@ -146,7 +146,7 @@
                             
                         });
 
-                        tabla += "</tabla>";
+                        tabla += "</table>";
                        
                         $('#respuesta').html(tabla);
        
@@ -154,6 +154,37 @@
          });
 
          }
+
+            function listadoEventos()
+         {
+
+         $.ajax({
+         type: 'POST',
+         url: '<?php echo base_url(); ?>index.php/ctrlEvento/listaEventos', 
+         dataType:'json',
+         success: function(resp) { 
+
+            
+         
+                       var tabla = "<h3>Lista de Eventos</h3><table class='table table-hover'><th>Nombre</th><th>Tipo</th><th>Descripción</th><th>Fecha</th><th>Precio</th><th>Editar</th><th>Borrar</th>";
+                       
+                        
+                      $.each(resp, function(index,value){
+                       
+                         tabla += "<tr><td>"+value.nombre+"</td><td>"+value.tipoEvento+"</td><td>"+value.descripcion+"</td><td>"+value.fecha+"</td><td>"+value.precio+"</td><td><a href='"+value.idEvento+"'><i class='fa  fa-pencil-square-o fa-2x'></i></a></td><td><a href='"+value.idEvento+"'><i class='fa  fa-trash fa-2x'></i></a></td></tr>";
+                           
+                        });
+
+                    tabla += "</table>";
+                       
+                    $('#respuesta').html(tabla);
+
+       
+            }
+         });
+
+         }
+
 
 
 

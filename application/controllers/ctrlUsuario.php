@@ -115,7 +115,7 @@ redirect('/', 'refresh');
         $this->load->model('venta');
 
        
-       
+       $menu=array('active'=>'', 'compras'=> '');
 
         // Toma los datos del usuario con la sesión activa
         $data = $this->session->userdata['usuario'];
@@ -131,7 +131,7 @@ redirect('/', 'refresh');
         // Carga la vista del perfil de usuario
         $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
         $this->load->view('comun/header');
-        $this->load->view('comun/menu');
+        $this->load->view('comun/menu',$menu);
         $this->load->view('comun/confirm_del');
         $this->load->view('misDatos',$data);
         $this->load->view('comun/footer',$footer);
