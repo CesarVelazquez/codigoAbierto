@@ -16,7 +16,7 @@ class Venta extends CI_Model
     function getVentaUsuario($id)
     {
         $query=  $this->db->get_where('venta', array('idUsuario'=>$id));
-        return $query->row();
+        return $query->result();
     }
     
     function setVenta($data)
