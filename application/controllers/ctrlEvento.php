@@ -19,14 +19,31 @@ class CtrlEvento extends CI_Controller {
     
     function nuevoEvento()
     {
+       
+        //load upload class library
+        $this->load->library('upload');
+        $upload_data = $this->upload->data();
+
+        if (!$this->upload->do_upload('frmFoto'))
+        {    
+            echo  $this->upload->display_errors();    
+        }
+        else
+        {
+            $upload_data = $this->upload->data(); 
+        }
+    
+
         $idLugar = $this->input->post('frmIdLugar');
         $tipoEvento = $this->input->post('frmTipoEvento');
         $nombre = $this->input->post('frmNombre');
         $descripcion = $this->input->post('frmDescripcion');
-        $foto = $this->input->post('frmFoto');
+        $foto = $upload_data['file_name'];
         $fecha = $this->input->post('frmFecha');
         $precio = $this->input->post('frmPrecio');
         $data = array('idLugar'=>$idLugar,'tipoEvento'=>$tipoEvento,'nombre'=>$nombre,'descripcion'=>$descripcion,'foto'=>$foto,'fecha'=>$fecha,'precio'=>$precio);
+
+
         $this->evento->setEvento($data);
     }
     

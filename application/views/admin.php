@@ -1,14 +1,5 @@
 
 
-<!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url(); ?>assets/admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="<?php echo base_url(); ?>assets/admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="<?php echo base_url(); ?>assets/admin/dist/css/timeline.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/admin/dist/css/sb-admin-2.css" rel="stylesheet">
 
@@ -29,7 +20,7 @@
                             <a href="#"><i class="fa fa-calendar fa-fw"></i> Eventos</a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#"><i class="fa fa-plus-circle fa-fw"></i>Nuevo Evento</a>
+                                    <a data-toggle='modal' data-target='#nuevoEvento' href="#"><i class="fa fa-plus-circle fa-fw"></i>Nuevo Evento</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -192,13 +183,9 @@
 </script>
 
 
-    <script src="<?php echo base_url(); ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+   
+   
 
-    <!-- Morris Charts JavaScript -->
-    <script src="<?php echo base_url(); ?>assets/admin/bower_components/raphael/raphael-min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/bower_components/morrisjs/morris.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/morris-data.js"></script>
+   
 
-    <!-- Custom Theme JavaScript -->
-    <script src="<?php echo base_url(); ?>assets/admin/dist/js/sb-admin-2.js"></script>
+ 

@@ -48,6 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Upload {
 
+
+
 	/**
 	 * Maximum file size
 	 *
@@ -102,7 +104,7 @@ class CI_Upload {
 	 *
 	 * @var	string
 	 */
-	public $allowed_types = '';
+	public $allowed_types = '*';
 
 	/**
 	 * Temporary filename
@@ -158,7 +160,7 @@ class CI_Upload {
 	 *
 	 * @var	string
 	 */
-	public $upload_path = '';
+	public $upload_path = 'assets/img';
 
 	/**
 	 * Overwrite flag
