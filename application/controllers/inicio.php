@@ -24,8 +24,9 @@ class inicio extends CI_Controller{
         $header=array('titulo'=>'Venta de Boletos');
         $inicio=array('eventos'=>$data);
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
+        $menu=array('active'=>'inicio');
         $this->load->view('comun/header', $header);
-        $this->load->view('comun/menu');
+        $this->load->view('comun/menu', $menu);
         $this->load->view('comun/login');
         $this->load->view('inicio', $inicio);
         $this->load->view('comun/footer',$footer);
