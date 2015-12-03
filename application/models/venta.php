@@ -19,6 +19,23 @@ class Venta extends CI_Model
         return $query->result();
     }
     
+    function getAll($idUsuario)
+    {
+        $query=  $this->db->query('
+            select v.idVenta, u.nombre, u.email, b.asiento, e.tipoEvento, e.nombre, e.foto, e.fecha, e.precio, l.descripcion
+            from venta v
+            inner join usuario u
+            on v.idUsuario=u.idUsuario
+            inner join boleto b
+            on v.idBoleto=b.idBoleto
+            inner join evento e
+            on b.idEvento=e.idEvento
+            inner join lugar l
+            on e.idLugar=l.idLugar
+            where u.idUsuario='.$idUsuario);
+        return $query->result();
+    }
+    
     function setVenta($data)
     {
         $this->db->insert('venta', $data);

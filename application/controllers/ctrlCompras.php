@@ -20,15 +20,15 @@ class ctrlCompras extends CI_Controller{
     
     function index()
     {
-        $data=  $this->evento->getEventos();
+        $data=  $this->venta->getAll($this->session->userdata['idUsuario']);
         $header=array('titulo'=>'Mis Compras');
-        $inicio=array('eventos'=>$data);
+        $compras=array('compras'=>$data);
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
         $menu=array('active'=>'');
         $this->load->view('comun/header', $header);
         $this->load->view('comun/menu', $menu);
         $this->load->view('comun/login');
-        $this->load->view('inicio', $inicio);
+        $this->load->view('compras', $compras);
         $this->load->view('comun/footer',$footer);
     }
 }
