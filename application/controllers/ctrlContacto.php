@@ -15,12 +15,12 @@ class CtrlContacto extends CI_Controller{
     
     
     function index()
-    {
-        
+    {   
+        $menu=array('active'=>'contacto', 'compras'=> '');
         $header=array('titulo'=>'Contacto');
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
         $this->load->view('comun/header', $header);
-        $this->load->view('comun/menu');
+        $this->load->view('comun/menu',$menu);
         $this->load->view('contacto');
         $this->load->view('comun/footer',$footer);
     }

@@ -7,6 +7,12 @@ class Evento extends CI_Model
         return $query->result();
     }
 
+    function getNumEventos()
+    {
+        $query=  $this->db->get('evento');
+        return $query->num_rows();
+    }
+
     function getEvento($id)
     {
         $query=  $this->db->get_where('evento', array('idEvento'=>$id));

@@ -7,6 +7,12 @@ class Venta extends CI_Model
         return $query->result();
     }
 
+     function getNumVentas()
+    {
+        $query=  $this->db->get('venta');
+        return $query->num_rows();
+    }
+
     function getVenta($id)
     {
         $query=  $this->db->get_where('venta', array('idVenta'=>$id));

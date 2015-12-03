@@ -151,6 +151,7 @@ redirect('/', 'refresh');
         if ($var = json_decode(json_encode($this->usuario->login($data)),true)) {
            $this->session->set_userdata('usuario', $var['user']);
            $this->session->set_userdata('idUsuario', $var['idUsuario']);
+           $this->session->set_userdata('tipoUsuario', $var['tipoUsuario']);
            redirect('/', 'refresh');
         }else{
             echo "usuario o contraseña incorrectos";

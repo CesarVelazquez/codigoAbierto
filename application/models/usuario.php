@@ -6,6 +6,12 @@ class Usuario extends CI_Model
         $query=  $this->db->get('usuario');
         return $query->result();
     }
+
+    function getNumUsuarios()
+    {
+        $query=  $this->db->get('usuario');
+        return $query->num_rows();
+    }
     
     function login($data)
     {

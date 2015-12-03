@@ -26,7 +26,7 @@ class ctrlCompras extends CI_Controller{
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
         $menu=array('active'=>'');
         $this->load->view('comun/header', $header);
-        $this->load->view('comun/menu', $menu);
+        $this->load->view('comun/menu', $menu,$compras);
         $this->load->view('comun/login');
         $this->load->view('compras', $compras);
         $this->load->view('comun/footer',$footer);

@@ -18,9 +18,15 @@
               $active=isset($active)?$active:'';
               ?>
             <ul class="nav navbar-nav">
-              <li <?php echo $active=='inicio'?'class="active"':'' ?> ><a href="#">Inicio</a></li>
+              <li <?php echo $active=='inicio'?'class="active"':'' ?> ><a href="<?php echo base_url(); ?>">Inicio</a></li>
               <li <?php echo $active=='nosotros'?'class="active"':'' ?>><a href="#">Nosotros</a></li>
               <li <?php echo $active=='contacto'?'class="active"':'' ?>><a href="<?php echo site_url('ctrlContacto/index'); ?>">Contacto</a></li>
+              <?php 
+                  if (isset($this->session->userdata['tipoUsuario'])=="admin") {
+                    echo "<li><a href=" .site_url('ctrlAdmin/index').">Panel de Administración</a></li>";
+                  }
+                  
+               ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <?php if (isset($this->session->userdata['usuario'])) {
@@ -35,8 +41,7 @@
                           <li><a href=" . site_url('ctrlUsuario') . ">Registrarme <span class='glyphicon glyphicon-user' aria-hidden='true'></span></a></li>";
                         }
                       
-                      
-                      
+                    
                         if (isset($this->session->userdata['usuario'])) {
                             if($compras>0)
                             {
