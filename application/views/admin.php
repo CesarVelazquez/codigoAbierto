@@ -12,9 +12,6 @@
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/admin/dist/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="<?php echo base_url(); ?>assets/admin/bower_components/morrisjs/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -26,16 +23,16 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
+                            <a href="<?php echo base_url('index.php/ctrlAdmin'); ?>"><i class="fa fa-dashboard fa-fw"></i>Admin</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-plus-circle fa-fw"></i> Charts</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-plus-circle fa-fw"></i> Charts</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-plus-circle fa-fw"></i> Charts</a>
+                            <a href="#"><i class="fa fa-calendar fa-fw"></i> Eventos</a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#"><i class="fa fa-plus-circle fa-fw"></i>Nuevo Evento</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         
                 </div>
@@ -66,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a style="cursor:pointer;" onclick="listado()">
                             <div class="panel-footer">
                                 <span class="pull-left">Listar usuarios</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -121,13 +118,48 @@
                 </div>
             </div>
             <!-- /.row -->
-            <d
+            <p id="respuesta"></p>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+
+
+    <script type="text/javascript">
+       
+
+         function listado()
+         {
+         $.ajax({
+         type: 'POST',
+         url: '<?php echo base_url(); ?>index.php/ctrlUsuario/listaUsuarios', 
+         dataType:'json',
+         success: function(resp) { 
+         
+                        var tabla = "<h3>Lista de Usuarios</h3><table class='table table-hover'><th>Username</th><th>Nombe</th><th>Email</th>";
+                       $.each(resp, function(index,value){
+                        //process your data by index, in example
+                        
+                        tabla += "<tr><td>"+value.user+"</td><td>"+value.nombre+"</td><td>"+value.email+"</td></tr>";
+                            
+                        });
+
+                        tabla += "</tabla>";
+                       
+                        $('#respuesta').html(tabla);
+       
+            }
+         });
+
+         }
+
+
+
+
+</script>
+
 
     <script src="<?php echo base_url(); ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>

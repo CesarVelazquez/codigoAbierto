@@ -102,6 +102,13 @@ redirect('/', 'refresh');
         $this->usuario->consultaBoletos($idEvento);
     }
 
+    function listaUsuarios()
+    {
+        $usuarios = $this->usuario->getUsuarios();
+        $this->output->set_output(json_encode($usuarios));
+
+    }
+
     function misDatos()
     {
         // Carga Modelo Venta para obtener historial de compras del usuario
@@ -163,6 +170,7 @@ redirect('/', 'refresh');
        
         $this->session->unset_userdata('usuario');
         $this->session->unset_userdata('idUsuario');
+        $this->session->unset_userdata('tipoUsuario');
         redirect('/', 'refresh');
         
     }

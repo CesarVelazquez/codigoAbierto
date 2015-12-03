@@ -22,8 +22,9 @@
               <li <?php echo $active=='nosotros'?'class="active"':'' ?>><a href="#">Nosotros</a></li>
               <li <?php echo $active=='contacto'?'class="active"':'' ?>><a href="<?php echo site_url('ctrlContacto/index'); ?>">Contacto</a></li>
               <?php 
-                  if (isset($this->session->userdata['tipoUsuario'])=="admin") {
-                    echo "<li><a href=" .site_url('ctrlAdmin/index').">Panel de Administración</a></li>";
+                  if (isset($this->session->userdata['tipoUsuario']) && $this->session->userdata['tipoUsuario']=="admin") {
+                    echo "<li "; echo $active=='admin'?'class="active"':'' ;
+                    echo"><a href=" .site_url('ctrlAdmin/index').">Panel de Administración</a></li>";
                   }
                   
                ?>

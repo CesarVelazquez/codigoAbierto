@@ -21,14 +21,16 @@ class CtrlAdmin extends CI_Controller {
 
     function index(){
 
+        $menu=array('active'=>'admin', 'compras'=> '');
+
         $data = array('numUsuarios'=> $this->usuario->getNumUsuarios(),'numEventos' => $this->evento->getNumEventos()
                     ,'numVentas' => $this->venta->getNumVentas());
       
       
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
         $this->load->view('comun/header');
-        $this->load->view('comun/menu');
-        $this->load->view('admin',($data));
+        $this->load->view('comun/menu',$menu);
+        $this->load->view('admin',$data);
         $this->load->view('comun/login');
         $this->load->view('comun/footer',$footer);
     }
