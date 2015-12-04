@@ -11,7 +11,7 @@
  *
  * @author admin
  */
-class ctrlCompras extends CI_Controller{
+class CtrlCompras extends CI_Controller{
     
     function __construct() {
         parent::__construct();
