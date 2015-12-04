@@ -34,6 +34,7 @@ class CtrlAdmin extends CI_Controller {
         $this->load->view('admin',$data);
         $this->load->view('comun/login');
         $this->load->view('nuevoEvento');
+        $this->load->view('nuevoLugar');
         $this->load->view('comun/footer',$footer);
     }
 

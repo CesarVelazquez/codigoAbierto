@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Cerar nuevo evento</h4>
+        <h4 class="modal-title">Crear nuevo evento</h4>
       </div>
       <div class="modal-body">
          <?php echo form_open_multipart('ctrlEvento/nuevoEvento');?>

@@ -22,6 +22,9 @@
                                 <li>
                                     <a data-toggle='modal' data-target='#nuevoEvento' href="#"><i class="fa fa-plus-circle fa-fw"></i>Nuevo Evento</a>
                                 </li>
+                                <li>
+                                    <a data-toggle='modal' data-target='#nuevoLugar' href="#"><i class="fa fa-building-o fa-fw"></i>Nuevo Lugar</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
