@@ -27,9 +27,9 @@ class CtrlAdmin extends CI_Controller {
         $data = array('idLugar' => $this->lugar->getLugares(),'numUsuarios'=> $this->usuario->getNumUsuarios(),'numEventos' => $this->evento->getNumEventos()
                     ,'numVentas' => $this->venta->getNumVentas());
       
-      
+        $header=array('titulo'=>'Panel de Administración');
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
-        $this->load->view('comun/header');
+        $this->load->view('comun/header',$header);
         $this->load->view('comun/menu',$menu);
         $this->load->view('admin',$data);
         $this->load->view('comun/login');

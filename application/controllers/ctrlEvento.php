@@ -15,6 +15,7 @@ class CtrlEvento extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('evento');
+        $this->load->model('lugar');
     }
     
     function nuevoEvento()
@@ -49,7 +50,23 @@ class CtrlEvento extends CI_Controller {
     
     function getEvento($idEvento)
     {
-        echo sha1('admin');
+        $evento= $this->evento->getEvento($idEvento);
+        $lugar = $this->lugar->getLugar($evento->idLugar);
+        $header=array('titulo'=>'Detalle');
+        $data = array('idEvento' => $evento ->idEvento,'idLugar' => $evento ->idLugar,
+                      'tipoEvento' => $evento ->tipoEvento,'nombre' => $evento ->nombre,
+                      'descripcion' => $evento ->descripcion,'foto' => $evento ->foto,
+                      'fecha' => $evento ->fecha,'precio' => $evento ->precio,'lugar'=>$lugar->descripcion,
+                      'ubicacion'=>$lugar->ubicacion,'cupo'=>$lugar->cupo);
+        $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
+       /* $menu=array('active'=>'inicio', 'compras'=>  $this->_getNumCompras());*/
+        $menu = array('compras' =>''); 
+        $compras=array('compras'=>'');
+        $this->load->view('comun/header', $header);
+        $this->load->view('comun/menu',$menu);
+        $this->load->view('comun/login');
+        $this->load->view('detalleEvento',$data);
+        $this->load->view('comun/footer',$footer);
     }
 
 

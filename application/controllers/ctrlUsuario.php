@@ -114,7 +114,7 @@ redirect('/', 'refresh');
         // Carga Modelo Venta para obtener historial de compras del usuario
         $this->load->model('venta');
 
-       
+       $header=array('titulo'=>'Mis Datos');
        $menu=array('active'=>'', 'compras'=> '');
 
         // Toma los datos del usuario con la sesión activa
@@ -130,7 +130,7 @@ redirect('/', 'refresh');
 
         // Carga la vista del perfil de usuario
         $footer=array('ruta'=>  base_url('asset/js/inicio.js'));
-        $this->load->view('comun/header');
+        $this->load->view('comun/header',$header);
         $this->load->view('comun/menu',$menu);
         $this->load->view('comun/confirm_del');
         $this->load->view('misDatos',$data);
