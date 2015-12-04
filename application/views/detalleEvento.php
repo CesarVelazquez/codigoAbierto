@@ -25,7 +25,20 @@
         	</tr>
         </table>
     </div>
-    <?php if (isset($this->session->userdata['usuario'])) {
+
+    <?php if ($disponibles == 0) {
+       
+     ?>
+
+     <div class="col-sm-6 col-md-4">
+        <h2 style="color:red;">Boletos Agotados</h2>
+        <hr>
+        
+
+    </div>
+
+
+    <?php }elseif (isset($this->session->userdata['usuario'])) {
     	
     ?>
     <div class="col-sm-6 col-md-4">
@@ -37,10 +50,10 @@
              
               <div class="col-sm-3">
               	 <label for="frmCupo" class="control-label">Comprar</label>
-              <input id="cantidad" type="number" size="40" value="1" min="1" class="form-control" name="frmCupo">
+              <input id="cantidad" type="number" size="40" value="1" min="1" max="<?php echo $disponibles; ?>" class="form-control" name="frmCupo">
               </div><br><br>
               <div class="col-sm-6">
-						de X disponibles.
+						de <?php echo $disponibles; ?> disponibles.
               	</div>
             <hr>
             <div class="col-sm-12">
@@ -66,14 +79,35 @@
 
  	<script>
 
+
+
  	function compra(){
  			var cantidad = $('#cantidad').val();
  			var precio = $('#pu').html();
  			var total = cantidad*precio;
- 			$('#num').html("<b>Número de boletos:</b> " + cantidad);
+ 			$('#num').html(cantidad);
  			$('#precio').html("<b>Precio unitario:</b> "+precio);
  			$('#total').html("<b>Total:</b> $"+total+"MXN");
 
+
+             $.post('ctrlBoleto/nuevosBoletos/',{"tbldata" : tbldata},function(response) 
+     {
+           //Load the response here to any div after ajax call     
+           //Eg: $('#div_id').html(response);
+     });//preview click
+
+
+
+
+
+
+
+
+
  	}
 
+     
  	</script>
+
+
+

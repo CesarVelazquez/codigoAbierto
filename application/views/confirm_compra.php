@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <div class="modal fade" id="compra" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -10,16 +16,19 @@
           <hr>
           <div class="col-sm-12">
               <p><b>Evento:</b> <?php echo $nombre; ?></p>
-              <p id="num">Número de Boletos: </p>
+              <p><b>Número de boletos: </b><span id="num"></span></p>
               <p id="precio">Precio Unitario: </p>
               <p id="total">Total: </p>
           </div>
       </div>
       <div class="modal-footer">
-        <a href="<?php echo site_url('ctrlUsuario/eliminaUsuario') ?>"><button type="button" class="btn btn-info">Comprar</button></a>
+        <a href=" "><button type="button" class="btn btn-info">Comprar</button></a>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        
+       
       </div>
     </div>
   </div>
 </div>
+
+
+<?php echo site_url('ctrlBoleto/nuevosBoletos/'.$idEvento.'/10') ?>

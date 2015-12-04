@@ -17,7 +17,7 @@ class CtrlBoleto extends CI_Controller {
         $this->load->model('boleto');
     }
     
-    function nuevosBoletos($idEvento,$noAsientos)
+    function nuevosBoletos()
     {
         for($n=1;$n<=$noAsientos;$n++)
         {

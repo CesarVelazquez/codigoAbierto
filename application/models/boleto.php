@@ -9,8 +9,8 @@ class Boleto extends CI_Model
 
     function getBoleto($id)
     {
-        $query=  $this->db->get_where('boleto', array('idBoleto'=>$id));
-        return $query->row();
+        $query=  $this->db->get_where('boleto', array('idEvento'=>$id));
+        return $query->num_rows();
     }
     
     function setBoleto($data)

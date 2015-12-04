@@ -15,6 +15,7 @@ class CtrlVenta extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('venta');
+        $this->load->model('boleto');
     }
 
     function index(){
@@ -24,6 +25,13 @@ class CtrlVenta extends CI_Controller {
         $this->load->view('signup');
         $this->load->view('comun/login');
         $this->load->view('comun/footer',$footer);
+    }
+
+
+    function vendido($idEvento,$numero){
+        $this->boleto->nuevosBoletos($idEvento,$numero);
+        echo $idEvento;
+        echo $numero;
     }
 
 }
