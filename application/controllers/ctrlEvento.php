@@ -65,6 +65,7 @@ class CtrlEvento extends CI_Controller {
         $this->load->view('comun/header', $header);
         $this->load->view('comun/menu',$menu);
         $this->load->view('comun/login');
+        $this->load->view('confirm_compra',$data);
         $this->load->view('detalleEvento',$data);
         $this->load->view('comun/footer',$footer);
     }
