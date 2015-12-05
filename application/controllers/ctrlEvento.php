@@ -47,6 +47,7 @@ class CtrlEvento extends CI_Controller {
 
 
         $this->evento->setEvento($data);
+        redirect('/ctrlAdmin', 'refresh');
     }
     
     function getEvento($idEvento)
@@ -54,21 +55,23 @@ class CtrlEvento extends CI_Controller {
         $evento= $this->evento->getEvento($idEvento);
         $lugar = $this->lugar->getLugar($evento->idLugar);
         $boletos = $this->boleto->getBoleto($idEvento);
+        $asientos = $this->boleto->getBoletos($idEvento);
         $header=array('titulo'=>'Detalle');
         $data = array('idEvento' => $evento ->idEvento,'idLugar' => $evento ->idLugar,
                       'tipoEvento' => $evento ->tipoEvento,'nombre' => $evento ->nombre,
                       'descripcion' => $evento ->descripcion,'foto' => $evento ->foto,
                       'fecha' => $evento ->fecha,'precio' => $evento ->precio,'lugar'=>$lugar->descripcion,
-                      'ubicacion'=>$lugar->ubicacion,'cupo'=>$lugar->cupo,'disponibles' =>($lugar->cupo)-($boletos));
+                      'ubicacion'=>$lugar->ubicacion,'cupo'=>$lugar->cupo,'disponibles' =>($lugar->cupo)-($boletos),
+                      'asientos' => $asientos);
         $footer=array('ruta'=>  base_url('assets/js/inicio.js'));
        /* $menu=array('active'=>'inicio', 'compras'=>  $this->_getNumCompras());*/
         $menu = array('compras' =>''); 
         $compras=array('compras'=>'');
         $this->load->view('comun/header', $header);
         $this->load->view('comun/menu',$menu);
-         $this->load->view('detalleEvento',$data);
-        $this->load->view('comun/login');
         $this->load->view('confirm_compra',$data);
+        $this->load->view('comun/login');
+        $this->load->view('detalleEvento',$data);
         $this->load->view('comun/footer',$footer);
     }
 

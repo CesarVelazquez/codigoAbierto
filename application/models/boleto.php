@@ -1,9 +1,9 @@
 <?php
 class Boleto extends CI_Model
 {
-    function getBoletos()
+    function getBoletos($idEvento)
     {
-        $query=  $this->db->get('boleto');
+        $query=  $this->db->get_where('boleto',array('idEvento' => $idEvento));
         return $query->result();
     }
 
@@ -27,7 +27,7 @@ class Boleto extends CI_Model
     
     function deleteBoleto($id)
     {
-        $this->db->delete('boleto', array('idBoleto'=>$id));
+        $this->db->delete('boleto', array('idUsuario'=>$id));
     }
     
     function consultaBoletos($idEvento)

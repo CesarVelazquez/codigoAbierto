@@ -56,7 +56,7 @@ class Venta extends CI_Model
     
     function deleteVenta($id)
     {
-        $this->db->delete('venta', array('idVenta'=>$id));
+        $this->db->delete('venta', array('idUsuario'=>$id));
     }
 }
 ?>

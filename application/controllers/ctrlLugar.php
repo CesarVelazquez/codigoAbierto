@@ -24,6 +24,7 @@ class CtrlLugar extends CI_Controller {
         $cupo = $this->input->post('frmCupo');
         $data = array('descripcion'=>$descripcion,'ubicacion'=>$ubicacion,'cupo'=>$cupo);
         $this->lugar->setLugar($data);
+        redirect('/ctrlAdmin', 'refresh');
     }
     
     function editaLugar()

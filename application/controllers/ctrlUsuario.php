@@ -15,6 +15,8 @@ class CtrlUsuario extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('usuario');
+        $this->load->model('venta');
+        $this->load->model('boleto');
     }
 
     function index(){
@@ -140,8 +142,10 @@ redirect('/', 'refresh');
     function eliminaUsuario()
     {
         $usuario = $this->session->userdata['usuario'];
+        $idUsuario = $this->session->userdata['idUsuario'];
         $this->session->unset_userdata('usuario');
         $this->session->unset_userdata('idUsuario');
+        $this->venta->deleteVenta($idUsuario);
         $this->usuario->deleteUsuario($usuario);
 
         $footer=array('ruta'=>  base_url('asset/js/inicio.js'));

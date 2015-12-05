@@ -15,14 +15,24 @@
           <h3 style="padding-left:20px;">Para finalizar, revisa los detalles de tu compra:</h3>
           <hr>
           <div class="col-sm-12">
+            <br>
+            <form action="<?php echo site_url('ctrlBoleto/nuevosBoletos/'.$idEvento.'/10') ?>" method="POST">
+              <input type="text" id='pasanumero' name="noBoletos" hidden>
+              <input type="text" id='pasaasientos' name="noAsientos" hidden>
+            
               <p><b>Evento:</b> <?php echo $nombre; ?></p>
-              <p><b>Número de boletos: </b><span id="num"></span></p>
-              <p id="precio">Precio Unitario: </p>
+              <p id="num"></p>
+              <p><b>Asientos:</b> <span id="asientos"></span></p>
+              <p id="pu">Precio Unitario: </p>
               <p id="total">Total: </p>
+             
+                
+           
           </div>
       </div>
       <div class="modal-footer">
-        <a href=" "><button type="button" class="btn btn-info">Comprar</button></a>
+        <a href=" "><button type="submit" class="btn btn-info">Comprar</button></a>
+        </form>
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
        
       </div>
@@ -31,4 +41,3 @@
 </div>
 
 
-<?php echo site_url('ctrlBoleto/nuevosBoletos/'.$idEvento.'/10') ?>
