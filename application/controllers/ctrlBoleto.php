@@ -70,11 +70,13 @@ class CtrlBoleto extends CI_Controller {
                                             <p><b>Ubicacion:</b> '.$lugar->ubicacion.'</p>
                                             <p><b>Fecha:</b> '.substr($datos->fecha, 0,10).'</p>
                                             <p><b>Boletos Comprados:</b> '.count($asientos).'</p>
-                                            <p><b>Asientos:</b> '.$this->input->post('noAsientos').'</p>
+                                            <p><b>Asiento:</b> '.$this->input->post('noAsientos').'</p>
                                             
                                       ');    
 
                 $this->email->send();
+
+                redirect('/ctrlCompras', 'refresh');
 
         
         

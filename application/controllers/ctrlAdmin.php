@@ -22,6 +22,8 @@ class CtrlAdmin extends CI_Controller {
 
     function index(){
 
+        if ($this->session->userdata['tipoUsuario']=='admin') {
+        
         $menu=array('active'=>'admin', 'compras'=> '');
 
         $data = array('idLugar' => $this->lugar->getLugares(),'numUsuarios'=> $this->usuario->getNumUsuarios(),'numEventos' => $this->evento->getNumEventos()
@@ -36,6 +38,9 @@ class CtrlAdmin extends CI_Controller {
         $this->load->view('nuevoEvento');
         $this->load->view('nuevoLugar');
         $this->load->view('comun/footer',$footer);
+    }else{
+        redirect('/', 'refresh');
     }
+}
 
 }    
